@@ -1,0 +1,59 @@
+**Context:**
+We are a property management company specializing in short and midterm rentals. We need to analyze messages from clients and create relevant tasks based on the content of these messages. Ensure that each task is categorized correctly and prioritized accurately.
+
+**Instructions:**
+1. Analyze the content and context of the 'message' using natural language processing techniques.
+2. Classify the message according to the criteria provided.
+3. Identify any issues or requests that require attention and create tasks for them.
+4. Each task should follow this structure: Service Level, Task, Description, Main Category, Sub Category, and Priority.
+5. Use the main and subcategories provided in the array below:
+
+[ "Main Category: Maintenance, Subcategories: [General Maintenance, Appliance Maintenance, Plumbing, Electrical, HVAC, Furniture Maintenance, Building Maintenance, Property Maintenance]"
+, "Main Category: Housekeeping & Cleaning, Subcategories: [Regular Cleaning, Deep Cleaning, Laundry Room, Linen Maintenance, Cleaning Supplies, Maintenance/Cleaning]"
+, "Main Category: Guest Experience & Services, Subcategories: [Guest Communication, Check-in/Check-out Process, Guest Amenities, Customer Support, Guest Services, Guest Satisfaction, Guest Feedback, Customer Complaints, Guest Information]"
+, "Main Category: Facilities & Infrastructure, Subcategories: [Property Infrastructure, Facilities/Environment, Safety and Security, Facilities/Equipment, Technical Support, Facilities/Pool, Parking, Outdoor Space, Facilities/Storage, Facilities/Transportation]"
+, "Main Category: Amenities & Comfort, Subcategories: [Kitchen Supplies, Bathroom Accessories, Bedding & Furnishing, Entertainment & Technology, Accessibility Features, Comfort Issue, Heating & Temperature Control, Pool amenities]"
+, "Main Category: Customer Service & Communication, Subcategories: [Customer Inquiry, Customer Issue, Customer Request, Customer Complaint, Customer Feedback, Customer Communication, Noise Complaint, Noise Disturbance]"
+, "Main Category: Supplies & Inventory, Subcategories: [Kitchenware, Bathroom Supplies, General Supplies, Inventory Management, Appliance Supplies, Food and Beverage]"
+, "Main Category: Safety/Security & Compliance, Subcategories: [Safety/Security, Compliance and Legal, Emergency Response, Noise/Soundproofing, Privacy Issues, Access Control]"
+, "Main Category: Operations & Management, Subcategories: [Property Information, Listing Management, Booking Process, Financial Management, Policy & Procedures, Staff Training, Operations, Facility Management]"
+, "Main Category: Marketing & Reviews, Subcategories: [Listing Description, Marketing Strategies, Review Management, Advertisement, Customer Engagement]"
+, "Main Category: Improvement & Renovation, Subcategories: [Property Improvement, Apartment Improvement, Renovation, Home Improvement, Room Improvement]"
+, "Main Category: Technical Issues & IT, Subcategories: [Technical Issue, Appliance Malfunction, Internet/Network Issues, Technical/Electronics]"
+, "Main Category: Additional Services, Subcategories: [Transportation, Food Service, Outdoor Amenities, Extra Services (e.g., Spa, Gym)]"
+]
+
+
+Service Levels:
+- Service level 2: Issues that can be resolved with a visit to the apartment.
+- Service level 3: Issues that require more time to resolve.
+
+Evaluate the message and create the necessary tasks. If the review is positive and free of issues, number_of_tasks should be 0, and "tasks": [{{
+            "Service Level": " ",
+            "Task": " ",
+            "Description": " ",
+            "Main Category": " ",
+            "Sub Category": " ",
+            "Priority": " "
+        }}].
+        
+Return JSON ONLY. No other text outside the JSON.
+
+**Example:**
+**Message:**
+"The air conditioning is not working and it's very hot in the apartment. Can you please send someone to fix it?"
+**Generated Output:**
+```json
+{{
+  "number_of_tasks": 1,
+  "tasks": [
+    {{
+      "service_level": 2,
+      "task": "Fix air conditioning unit",
+      "description": "The air conditioning unit in the apartment is not working and needs to be repaired.",
+      "main_category": "Maintenance",
+      "sub_category": "HVAC",
+      "priority": "High"
+    }}
+  ]
+}}
